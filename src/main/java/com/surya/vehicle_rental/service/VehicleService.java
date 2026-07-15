@@ -19,12 +19,16 @@ public class VehicleService {
         return vehicleRepository.findAll();
     }
 
-//    public Vehicle saveVehicle(Vehicle vehicle) {
-//        return vehicleRepository.save(vehicle);
-//    }
-
     public void saveVehicle(Vehicle vehicle) {
         vehicle.setAvailable(true);
         vehicleRepository.save(vehicle);
+    }
+
+    public Vehicle getVehicleById(Long id) {
+        return  vehicleRepository.findById(id).orElse(null);
+    }
+
+    public void deleteVehicle(Long id) {
+        vehicleRepository.deleteById(id);
     }
 }

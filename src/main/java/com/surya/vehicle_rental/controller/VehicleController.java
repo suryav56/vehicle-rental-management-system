@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -36,5 +37,19 @@ public class VehicleController {
         vehicleService.saveVehicle(vehicle);
 
         return "redirect:/";
+    }
+
+    @GetMapping("/editVehicle/{id}")
+    public String editVehicle(@PathVariable Long id, Model model) {
+        Vehicle vehicle = vehicleService.getVehicleById(id);
+        model.addAttribute("vehicle",vehicle);
+        return "addVehicle";
+    }
+
+    @GetMapping("/deleteVehicle/{id}")
+    public String deleteVehicle(@PathVariable Long id) {
+        vehicleService.deleteVehicle(id);
+        return "redirect:/";
+
     }
 }

@@ -15,7 +15,7 @@
     <h2>Add New Vehicle</h2>
 
     <form th:action="@{/saveVehicle}" th:object="${vehicle}" method="post">
-
+        <input type="hidden" th:field="*{id}">
         <div class="mb-3">
             <label>Vehicle Number</label>
             <input type="text" class="form-control" th:field="*{vehicleNumber}">
