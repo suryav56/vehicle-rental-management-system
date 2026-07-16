@@ -35,4 +35,13 @@ public class VehicleService {
     public List<Vehicle> getAvailableVehicles() {
         return vehicleRepository.findByAvailableTrue();
     }
+
+    public long getVehicleCount() {
+        return vehicleRepository.count();
+    }
+
+    public long getAvailableVehicleCount() {
+        return vehicleRepository.findByAvailableTrue().size();
+    }
+
 }

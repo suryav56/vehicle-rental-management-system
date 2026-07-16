@@ -17,8 +17,8 @@ public class VehicleController {
         this.vehicleService = vehicleService;
     }
 
-    @GetMapping("/")
-    public String home(Model model) {
+    @GetMapping("/vehicles")
+    public String vehicles(Model model) {
         model.addAttribute("vehicles", vehicleService.getAllVehicles());
 
         return "vehicles";

@@ -30,4 +30,9 @@ public class RentalService {
     public void deleteRental(Long id) {
         rentalRepository.deleteById(id);
     }
+
+    public long getRentalCount() {
+        return rentalRepository.count();
+    }
+
 }
