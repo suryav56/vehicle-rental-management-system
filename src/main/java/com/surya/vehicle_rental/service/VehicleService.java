@@ -20,9 +20,9 @@ public class VehicleService {
     }
 
     public void saveVehicle(Vehicle vehicle) {
-        vehicle.setAvailable(true);
         vehicleRepository.save(vehicle);
     }
+
 
     public Vehicle getVehicleById(Long id) {
         return  vehicleRepository.findById(id).orElse(null);
@@ -30,5 +30,9 @@ public class VehicleService {
 
     public void deleteVehicle(Long id) {
         vehicleRepository.deleteById(id);
+    }
+
+    public List<Vehicle> getAvailableVehicles() {
+        return vehicleRepository.findByAvailableTrue();
     }
 }

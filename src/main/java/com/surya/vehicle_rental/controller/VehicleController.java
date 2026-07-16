@@ -34,6 +34,10 @@ public class VehicleController {
     @PostMapping("/saveVehicle")
     public String saveVehicle(@ModelAttribute Vehicle vehicle) {
 
+        if (vehicle.getId() == null) {
+            vehicle.setAvailable(true);
+        }
+
         vehicleService.saveVehicle(vehicle);
 
         return "redirect:/";
